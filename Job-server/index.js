@@ -115,7 +115,7 @@ app.patch("/update-job/:id", async (req, res) => {
 });
 
 //create account
-app.post("/create-account",async (req,res)=>{
+app.post("/Signup",async (req,res)=>{
   const {fullName,email,password} = req.body;
   if(!fullName){
     return res.status(400).json({error:true,message:"fullname is required"});
