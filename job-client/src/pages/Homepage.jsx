@@ -4,6 +4,7 @@ import Card from "../components/Card";
 import Jobs from "./Jobs";
 import Sidebar from "../sidebar/Sidebar";
 import Newsletter from "../components/Newsletter";
+import Navbar from "../components/Navbar";
 
 const Homepage = () => {
   const [jobs, setJobs] = useState([]);
@@ -99,7 +100,10 @@ const Homepage = () => {
   const result = filteredData(jobs, selectedcategory, query);
 
   return (
+
     <div>
+         <Navbar/>
+
       <Banner query={query} handleInputChange={handleInputChange} />
       {/* main content */}
       <div className=" bg-[#FAFAFA] md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-12">

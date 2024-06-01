@@ -23,7 +23,7 @@ const Signup = () => {
 
       const data = await res.json();
       console.log(data);
-     
+      alert('registeration successful')
       navigate('/login');
       
     } catch (error) {

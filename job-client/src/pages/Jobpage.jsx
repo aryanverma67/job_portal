@@ -84,7 +84,7 @@ const Jobpage = () => {
           </div>
           <div className="mt-5 flex flex-col gap-3 flex-wrap ">
             <h2 className="text-gray-600 mb-1 ml-4 ">
-              Company: <span className="text-blue">{job.companyName}</span>
+              Company: <span className="text-blue ">{job.companyName}</span>
             </h2>
             <h2 className="text-gray-600 mb-1 ml-4">
               salaryType:<span className="text-blue"> {job.salaryType}</span>

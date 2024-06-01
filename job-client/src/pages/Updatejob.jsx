@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { Navigate, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import CreatableSelect from "react-select/creatable";
 
 
 const Updatejob = () => {
+  const navigate = useNavigate();
   const {id } = useParams();
   const {
     
@@ -38,6 +39,7 @@ const Updatejob = () => {
             console.log(result);
             if(result.acknowledged  !== true){
               alert("job updated  succesfully!!!")
+              navigate('/')
             }
             reset()
           });

@@ -1,15 +1,15 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Banner from './components/Banner'
+import React, { useEffect } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 const App = () => {
-  return (
-    <div className=''>
-   <Navbar/>
-   <Outlet/>
-    </div>
-  )
-}
 
-export default App
+
+  return (
+    <div>
+      <Outlet />
+    </div>
+  );
+};
+
+export default App;

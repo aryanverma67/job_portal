@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const Myjob = () => {
   const email = "aryanverma9341@gmail.com";
@@ -44,6 +45,8 @@ const Myjob = () => {
 
   return (
     <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4 ">
+               <Navbar/>
+
       <div className="my-jobs-container">
         <h1 className="text-center p-4">All My Jobs</h1>
         <div className="p-2 text-center mb-2">

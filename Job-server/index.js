@@ -14,6 +14,9 @@ const User = require("./models/User.model.js");
 app.use(cors());
 app.use(express.json());
 
+// In-memory token blacklist
+const tokenBlacklist = [];
+
 // Mongoose connection
 async function connectToDatabase() {
   try {
@@ -196,6 +199,32 @@ app.post("/login",async (req,res)=>{
 
 
 })
+// Logout
+app.post('/logout', (req, res) => {
+  const token = req.header('Authorization')?.split(' ')[1];
+  if (!token) {
+    return res.status(400).json({ message: "Token is required for logout" });
+  }
+  try {
+    const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+    tokenBlacklist.push(token);
+    res.status(200).json({ message: "Logout successful" });
+  } catch (error) {
+    res.status(500).json({ message: "Error during logout", error });
+  }
+});
+
+// Middleware to check token against blacklist
+const checkBlacklist = (req, res, next) => {
+  const token = req.header('Authorization')?.split(' ')[1];
+  if (token && tokenBlacklist.includes(token)) {
+    return res.status(401).json({ message: "Token is blacklisted" });
+  }
+  next();
+};
+
+app.use(checkBlacklist);
+
 
 // Start the server
 app.listen(port, () => {

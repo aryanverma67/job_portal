@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import CreatableSelect from "react-select/creatable";
+import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
 
 const Postjobs = () => {
+  const navigate = useNavigate();
   const [selectedOption, setSelectedOption] = useState(null);
   const { register, handleSubmit,reset } = useForm();
 
@@ -18,6 +21,7 @@ const Postjobs = () => {
           console.log(result);
           if(result.acknowledged  !== true){
             alert("job posted succesfully!!!")
+            navigate('/')
           }
           reset()
         });
@@ -34,6 +38,8 @@ const Postjobs = () => {
 
   return (
     <div className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
+               <Navbar/>
+
       <div className="bg-[#FAFAFA] py-10 px-4 lg:px-16">
         <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
           <div className="create-job-flex">

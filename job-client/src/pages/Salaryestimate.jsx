@@ -1,6 +1,7 @@
 import React from "react";
 import PageHeader from "../components/PageHeader";
 import { useState,useEffect } from "react";
+import Navbar from "../components/Navbar";
 
 const Salaryestimate = () => {
   const [searchtext, setSearchtext] = useState("")
@@ -20,6 +21,8 @@ const Salaryestimate = () => {
 
   return (
     <div className="mx-w-screen-2xl container mx-auto xl:px-24 px-4">
+               <Navbar/>
+
       <PageHeader title={"Estimate Salary"} path={"salary"} />
       <div className="mt-5">
         <div className="search-box p-2 mb-2 text-center">

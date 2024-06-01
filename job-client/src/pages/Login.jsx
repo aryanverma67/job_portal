@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [isAuthenticated, setisAuthenticated] = useState(false);
   const [form, setForm] = useState({
     fullName: '',
     email: '',
@@ -24,10 +23,8 @@ const Signup = () => {
 
       const data = await res.json();
       console.log(data);
-
+alert('login successful')
         navigate('/');
-        setisAuthenticated(true);
-
     } catch (error) {
       console.error('An error occurred:', error);
     }
